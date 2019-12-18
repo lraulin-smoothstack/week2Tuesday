@@ -1,14 +1,4 @@
-INSERT INTO tbl_library_branch (branchId, branchName)
-    VALUES (2, "Shady Grove") ON DUPLICATE KEY branchName = branchName;
-
-INSERT INTO tbl_library_branch (branchId, branchName)
-    VALUES (3, "Foggy Bottom") ON DUPLICATE KEY branchName = branchName;
-
-INSERT INTO tbl_book_copies (bookId, branchId, noOfCopies)
-    VALUES (1, 2, 2);
-
-INSERT INTO tbl_book_copies (bookId, branchId, noOfCopies)
-    VALUES (1, 3, 4);
+--How many copies of the book titled The Lost Tribe are owned by each library branch?
 
 SELECT
     tbl_library_branch.branchname,
@@ -19,9 +9,9 @@ FROM
 WHERE
     tbl_book_copies.bookid = (
         SELECT
-            bookid
-        FROM
-            tbl_book
-        WHERE
-            title = "The lost tribe");
+    bookid
+FROM
+    tbl_book
+WHERE
+    title = "The lost tribe");
 
